@@ -1,0 +1,3 @@
+curl -s -X PUT -H "Cookie: connect.sid=s%3AYQIgpf-rRehQXfDEcNvhdivAFzgrC0wO.kW27J7gsgwqFwCVsYkEKo19l1XlGqf8PDMSyDvoNYT0" -H "Content-Type: application/json" -d '{"review":"Great book!"}' http://localhost:5000/customer/auth/review/1
+
+The review for the book with ISBN 1 has been added/updated.
