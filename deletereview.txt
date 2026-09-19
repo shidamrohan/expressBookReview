@@ -1,3 +1,26 @@
-curl -s -X DELETE -H "Cookie: connect.sid=s%3AYQIgpf-rRehQXfDEcNvhdivAFzgrC0wO.kW27J7gsgwqFwCVsYkEKo19l1XlGqf8PDMSyDvoNYT0" http://localhost:5000/customer/auth/review/1
+# Task 10: Delete a Book Review (Requires Login)
 
+Pre-condition: User must be logged in (session cookie from login step)
+
+--- Delete Review ---
+Command:
+curl -s -b cookies.txt -X DELETE http://localhost:5000/customer/auth/review/1
+
+Output (Success - HTTP 200):
 Reviews for the ISBN 1 posted by the user testuser deleted.
+
+--- Verify Review Was Deleted (GET /review/1) ---
+Command:
+curl -s http://localhost:5000/review/1
+
+Output (Empty reviews after deletion):
+{}
+
+--- Error Case (No active session / unauthorized) ---
+Command:
+curl -s -X DELETE http://localhost:5000/customer/auth/review/1
+
+Output (Error - HTTP 403 - User not logged in):
+{
+    "message": "User not logged in"
+}

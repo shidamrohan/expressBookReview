@@ -1,3 +1,22 @@
-curl -s -X POST -H "Content-Type: application/json" -d '{"username":"testuser","password":"testpassword"}' http://localhost:5000/customer/login
+# Task 8: Login
 
+--- Success Case ---
+Command:
+curl -s -c cookies.txt -X POST -H "Content-Type: application/json" -d '{"username":"testuser","password":"testpassword"}' http://localhost:5000/customer/login
+
+Output (Success - HTTP 200):
 User successfully logged in
+
+Session Cookie (JWT stored in session):
+connect.sid=s%3A5G5hIjUYF84OCCh_b8x5LmXNCaVkCIr_.3dFWBh1Xikue5acZCiD2xDYEhQ%2FV3KVpj5XObKV0z3E
+
+Note: A JWT access token is generated and stored in the session upon successful login.
+
+--- Error Case (Wrong credentials) ---
+Command:
+curl -s -X POST -H "Content-Type: application/json" -d '{"username":"testuser","password":"wrongpassword"}' http://localhost:5000/customer/login
+
+Output (Error - HTTP 208):
+{
+    "message": "Invalid Login. Check username and password"
+}

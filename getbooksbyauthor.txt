@@ -1,5 +1,10 @@
-curl -s http://localhost:5000/author/Chinua%20Achebe
+# Task 4: Get Books by Author
 
+--- Success Case ---
+Command:
+curl -s "http://localhost:5000/author/Chinua%20Achebe"
+
+Output (Success - HTTP 200):
 [
     {
         "author": "Chinua Achebe",
@@ -7,3 +12,11 @@ curl -s http://localhost:5000/author/Chinua%20Achebe
         "reviews": {}
     }
 ]
+
+--- Error Case (Author not found) ---
+Command:
+curl -s "http://localhost:5000/author/Unknown%20Author%20XYZ"
+
+Output (Author not found - empty array):
+[]
+(Empty array - no books found for this author)

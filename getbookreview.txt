@@ -1,3 +1,8 @@
+# Task 6: Get Book Review
+
+Command:
 curl -s http://localhost:5000/review/1
 
+
+Output (Success - HTTP 200 - Initial empty reviews):
 {}

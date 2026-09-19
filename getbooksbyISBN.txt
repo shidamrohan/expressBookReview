@@ -1,7 +1,19 @@
+# Task 3: Get Books by ISBN
+
+--- Success Case ---
+Command:
 curl -s http://localhost:5000/isbn/1
 
+Output (Success - HTTP 200):
 {
     "author": "Chinua Achebe",
     "title": "Things Fall Apart",
     "reviews": {}
 }
+
+--- Error Case (ISBN not found) ---
+Command:
+curl -s http://localhost:5000/isbn/9999
+
+Output (Error - HTTP 404 / Not Found):
+null (book not found for this ISBN)

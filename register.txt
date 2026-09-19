@@ -1,5 +1,19 @@
+# Task 7: Register a New User
+
+--- Success Case ---
+Command:
 curl -s -X POST -H "Content-Type: application/json" -d '{"username":"testuser","password":"testpassword"}' http://localhost:5000/register
 
+Output (Success - HTTP 200):
 {
     "message": "Customer successfully registered. Now you can login"
+}
+
+--- Error Case (User already exists) ---
+Command:
+curl -s -X POST -H "Content-Type: application/json" -d '{"username":"testuser","password":"testpassword"}' http://localhost:5000/register
+
+Output (Error - HTTP 404 - User already registered):
+{
+    "message": "User already exists!"
 }

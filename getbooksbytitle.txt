@@ -1,5 +1,10 @@
-curl -s http://localhost:5000/title/Things%20Fall%20Apart
+# Task 5: Get Books by Title
 
+--- Success Case ---
+Command:
+curl -s "http://localhost:5000/title/Things%20Fall%20Apart"
+
+Output (Success - HTTP 200):
 [
     {
         "author": "Chinua Achebe",
@@ -7,3 +12,11 @@ curl -s http://localhost:5000/title/Things%20Fall%20Apart
         "reviews": {}
     }
 ]
+
+--- Error Case (Title not found) ---
+Command:
+curl -s "http://localhost:5000/title/Nonexistent%20Title"
+
+Output (Title not found - empty array):
+[]
+(Empty array - no books found with this title)

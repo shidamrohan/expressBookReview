@@ -1,3 +1,19 @@
-curl -s -X PUT -H "Cookie: connect.sid=s%3AYQIgpf-rRehQXfDEcNvhdivAFzgrC0wO.kW27J7gsgwqFwCVsYkEKo19l1XlGqf8PDMSyDvoNYT0" -H "Content-Type: application/json" -d '{"review":"Great book!"}' http://localhost:5000/customer/auth/review/1
+# Task 9: Add/Modify a Book Review (Requires Login)
 
+Pre-condition: User must be logged in (session cookie from login step)
+
+--- Add Review ---
+Command:
+curl -s -b cookies.txt -X PUT -H "Content-Type: application/json" -d '{"review":"Great book! A must read."}' http://localhost:5000/customer/auth/review/1
+
+Output (Success - HTTP 200):
 The review for the book with ISBN 1 has been added/updated.
+
+--- Verify Review Was Added (GET /review/1) ---
+Command:
+curl -s http://localhost:5000/review/1
+
+Output:
+{
+    "testuser": "Great book! A must read."
+}

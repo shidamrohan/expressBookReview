@@ -1,5 +1,9 @@
+# Task 2: Get All Books
+
+Command:
 curl -s http://localhost:5000/
 
+Output (Success - HTTP 200):
 {
     "1": {
         "author": "Chinua Achebe",
